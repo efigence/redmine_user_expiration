@@ -11,5 +11,6 @@ end
 
 
 ActionDispatch::Callbacks.to_prepare do
-  require 'hooks/expiration_date'
+  require 'user_expiration/hooks/expiration_date'
+  require 'user_expiration/patches/user_patch'
 end
