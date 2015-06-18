@@ -1,10 +1,10 @@
-require_dependency 'user'
+module UserExpiration
+  class UsersDeactivationWorker
+    include Sidekiq::Worker
 
-class UsersDeactivationWorker
-  include Sidekiq::Worker
+    def perform
+      UserExpiration::Cleaner.lock_expired_users
+    end
 
-  def perform
-    UserExpiration::Cleaner.execute
   end
-
 end

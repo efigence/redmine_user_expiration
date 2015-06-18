@@ -1,12 +1,11 @@
 require File.expand_path('../../test_helper', __FILE__)
 
 class AccountControllerTest < ActionController::TestCase
-  fixtures :users, :email_addresses, :roles
+  fixtures :users
 
   def setup
     User.current = nil
   end
-
 
   def test_login_should_allow_login_with_future_expiration_date
     # request.uri is "test.host" in test environment

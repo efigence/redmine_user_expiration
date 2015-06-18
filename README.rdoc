@@ -1,3 +1,0 @@
-= user_expiration (work in progress - DO NOT USE)
-
-Adding user expiration date in order to enable managing on daily basis if any accounts should be blocked.

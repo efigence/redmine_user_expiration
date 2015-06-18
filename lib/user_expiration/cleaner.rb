@@ -1,11 +1,15 @@
-class Cleaner
+require_dependency 'user'
 
-  def execute
-    User.all.find_each(:conditions => "status = STATUS_ACTIVE)") do |u|
-      if u.expiration_date <= Time.now.utc
-        u.lock!
+module UserExpiration
+  class Cleaner
+
+    def self.lock_expired_users
+      User.status(User::STATUS_ACTIVE)
+        .where("expiration_date IS NOT NULL AND expiration_date <= ?", Time.now.utc)
+        .find_each do |u|
+          u.lock!
       end
     end
-  end
 
+  end
 end
