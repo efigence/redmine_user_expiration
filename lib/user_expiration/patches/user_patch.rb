@@ -1,6 +1,6 @@
 require_dependency 'user'
 
-module UserExpiration
+module RedmineUserExpiration
   module Patches
     module UserPatch
       def self.included(base)
@@ -24,6 +24,6 @@ module UserExpiration
   end
 end
 
-unless User.included_modules.include?(UserExpiration::Patches::UserPatch)
-  User.send(:include, UserExpiration::Patches::UserPatch)
+unless User.included_modules.include?(RedmineUserExpiration::Patches::UserPatch)
+  User.send(:include, RedmineUserExpiration::Patches::UserPatch)
 end

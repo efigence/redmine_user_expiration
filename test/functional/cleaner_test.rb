@@ -13,7 +13,7 @@ class CleanerTest < ActiveSupport::TestCase
     user3 = users(:users_003)
 
     assert_difference 'User.status(User::STATUS_ACTIVE).count', -1 do
-      UserExpiration::Cleaner.lock_expired_users
+      RedmineUserExpiration::Cleaner.lock_expired_users
     end
 
     assert user1.status = "STATUS_LOCKED"

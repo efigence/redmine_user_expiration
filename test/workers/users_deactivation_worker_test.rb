@@ -15,8 +15,8 @@ class UsersDeactivationWorkerTest < ActiveSupport::TestCase
     user3 = users(:users_003)
 
     assert_difference 'User.status(User::STATUS_ACTIVE).count', -1 do
-      UserExpiration::UsersDeactivationWorker.perform_async
-      UserExpiration::UsersDeactivationWorker.drain
+      RedmineUserExpiration::UsersDeactivationWorker.perform_async
+      RedmineUserExpiration::UsersDeactivationWorker.drain
     end
   end
 

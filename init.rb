@@ -1,4 +1,4 @@
-Redmine::Plugin.register :user_expiration do
+Redmine::Plugin.register :redmine_user_expiration do
   name 'User Expiration plugin'
   author 'Maria Syczewska'
   description 'This is a plugin for Redmine for implementing and managing user expiration date'
@@ -8,6 +8,6 @@ Redmine::Plugin.register :user_expiration do
 end
 
 ActionDispatch::Callbacks.to_prepare do
-  require 'user_expiration/hooks/expiration_date'
-  require 'user_expiration/patches/user_patch'
+  require 'redmine_user_expiration/hooks/expiration_date'
+  require 'redmine_user_expiration/patches/user_patch'
 end

@@ -1,6 +1,6 @@
 require_dependency 'user'
 
-module UserExpiration
+module RedmineUserExpiration
   class Cleaner
 
     def self.lock_expired_users
