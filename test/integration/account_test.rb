@@ -1,7 +1,17 @@
 require File.expand_path('../../test_helper', __FILE__)
 
-class AccountTest < Redmine::IntegrationTest
+class AccountTest < ActionDispatch::IntegrationTest
   fixtures :users
+
+  def log_user(login, password)
+    User.anonymous
+    get "/login"
+    assert_equal nil, session[:user_id]
+    assert_response :success
+    assert_template "account/login"
+    post "/login", :username => login, :password => password
+    assert_equal login, User.find(session[:user_id]).login
+  end
 
   def setup
     log_user("jsmith", "jsmith")
