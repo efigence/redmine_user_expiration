@@ -1,4 +1,4 @@
-# Redmine User Expiration plugin
+# Redmine User Expiration plugin [![Build Status](https://travis-ci.org/efigence/redmine_user_expiration.svg?branch=master)](https://travis-ci.org/efigence/redmine_user_expiration)
 
 #### Plugin which adds expiration date in model User in order to verify on daily basis if any accounts should be locked.
 
