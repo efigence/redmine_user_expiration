@@ -1,2 +1,2 @@
-<p><%= form.text_field :expiration_date, :value => user.expiration_date.strftime("%Y-%m-%d") %><%= calendar_for('user_expiration_date') %></p>
+<p><%= form.text_field :expiration_date, :value => user.expiration_date && user.expiration_date.strftime("%Y-%m-%d") %><%= calendar_for('user_expiration_date') %></p>
 
