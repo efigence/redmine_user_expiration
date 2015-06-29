@@ -5,7 +5,7 @@ module RedmineUserExpiration
 
     def self.lock_expired_users
       User.status(User::STATUS_ACTIVE)
-        .where("expiration_date IS NOT NULL AND expiration_date <= ?", Time.now.utc)
+        .where("expiration_date IS NOT NULL AND expiration_date <= ?", Time.now)
         .find_each do |u|
           u.lock!
       end

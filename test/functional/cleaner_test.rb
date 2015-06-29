@@ -16,7 +16,8 @@ class CleanerTest < ActiveSupport::TestCase
       RedmineUserExpiration::Cleaner.lock_expired_users
     end
 
-    assert user1.status = "STATUS_LOCKED"
+    user1.reload
+    assert_equal User::STATUS_LOCKED, user1.status
 
   end
 
